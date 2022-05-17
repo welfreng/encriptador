@@ -48,5 +48,6 @@ def desencriptador(encriptado, clave):
 while True:
     mensaje=input('digita mensaje: ')
     encriptado, clave = encriptador(mensaje)
+    print(encriptado, clave)
     desencriptador(encriptado, clave)
     break
