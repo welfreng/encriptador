@@ -1,0 +1,54 @@
+from string import ascii_uppercase as alfabeto
+
+# NO MODIFICAR LOS NOMBRES, PARÁMETROS O RETORNOS DE LAS FUNCIONES
+def encriptador(mensaje):
+    # ACÁ INICIA LA FUNCIÓN ENCRIPTADOR
+    # (En este espacio debes poner el código necesario para encriptar)
+    
+    #sacamos los caracteres unicos
+    crtUnicos = list(mensaje)
+    crtUnicos = set(crtUnicos) #convierto la lista en conjunto para sacar valores repetidos
+    if len(crtUnicos) <= 26:
+        
+        
+        #encriptamos el mensaje
+        global clave
+        clave= dict(zip(crtUnicos, alfabeto))
+        
+        
+        #sacamos los caracteres de la clave encriptada
+        global encriptado 
+        encriptado = ''
+        for letra in mensaje:
+            encriptado = encriptado+clave[letra]
+        
+        
+    # ACÁ TERMINA LA FUNCIÓN ENCRIPTADOR
+    # NO MODIFIQUES LA SIGUIENTE LÍNEA
+    return encriptado, clave
+
+    
+def desencriptador(encriptado, clave):
+    # ACÁ INICIA LA FUNCIÓN DESENCRIPTADOR 
+    # (En este espacio debes poner el código necesario para desencriptar)
+    
+    lstKey = list(clave.keys())
+    lstValor = list(clave.values())
+    desencriptado=[]
+        
+    for i in encriptado:
+         indice=lstValor.index(i)
+         desencriptado.append(lstKey[indice])
+    
+    desencriptado = "".join(desencriptado)
+    print(desencriptado)
+    # ACÁ TERMINA LA FUNCIÓN DESENCRIPTADOR
+    # NO MODIFIQUES LA SIGUIENTE LÍNEA
+    return desencriptado
+
+while True:
+    mensaje='hola mundo'
+    #mensaje=input('digita mensaje: ')
+    encriptador(mensaje)
+    desencriptador(encriptado, clave)
+    break
