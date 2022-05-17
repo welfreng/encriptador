@@ -12,12 +12,11 @@ def encriptador(mensaje):
         
         
         #encriptamos el mensaje
-        global clave
+        
         clave= dict(zip(crtUnicos, alfabeto))
         
-        
         #sacamos los caracteres de la clave encriptada
-        global encriptado 
+         
         encriptado = ''
         for letra in mensaje:
             encriptado = encriptado+clave[letra]
@@ -47,8 +46,7 @@ def desencriptador(encriptado, clave):
     return desencriptado
 
 while True:
-    mensaje='hola mundo'
-    #mensaje=input('digita mensaje: ')
-    encriptador(mensaje)
+    mensaje=input('digita mensaje: ')
+    encriptado, clave = encriptador(mensaje)
     desencriptador(encriptado, clave)
     break
